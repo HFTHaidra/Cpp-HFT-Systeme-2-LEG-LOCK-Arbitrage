@@ -1,0 +1,537 @@
+﻿#include <iostream>
+#include<string>
+
+#include <vcl.h>
+#pragma hdrstop
+
+
+//*****************************************************************************
+//*****************************************************************************
+//  struct Les Var
+ struct SymbolInfo {    String id; String name; String login; String leverage; String company; String server; int    TaillDuContrat ;};
+
+//*****************************************************************************
+//*****************************************************************************
+// variables
+String consoleMSG="NULL";
+
+SymbolInfo symInfo[20];
+String symId[20];
+int    MaxiSym=20,iSym=0;
+
+
+
+
+
+//*****************************************************************************
+//*****************************************************************************
+// Redefition
+ String getDataId(String d);
+ void c(String str);
+ bool isNewSym(String id);
+ String getAsk(String d);
+ String getBid(String d);
+ String getTime();
+
+
+
+
+
+
+
+//*****************************************************************************
+//*****************************************************************************
+
+
+
+
+
+
+
+
+//*****************************************************************************
+//*****************************************************************************
+// les Set Function
+void setConsoleMSG(String str){ consoleMSG=str; }
+
+
+
+
+
+
+
+//*****************************************************************************
+//*****************************************************************************
+// Les Get Function
+String getConsoleMSG(){ return consoleMSG; }
+
+
+
+
+
+
+
+//*****************************************************************************
+//*****************************************************************************
+
+
+
+
+
+
+
+
+
+//*****************************************************************************
+//*****************************************************************************
+//*****************************************************************************
+//*****************************************************************************
+//*****************************************************************************
+//*****************************************************************************
+//*****************************************************************************
+//*****************************************************************************
+//*****************************************************************************
+
+
+
+
+//*****************************************************************************
+//*****************************************************************************
+//  HandleIncomingData
+
+
+
+void HandleIncomingData(String data){
+	if(data!=""){
+		String id;
+		String ask,bid;
+		id = getDataId(data);
+
+
+		c("............................. "+getTime() );
+		if(isNewSym(id)){// New Symbol Incoming
+		   c(" New Symbol comming");
+		   symId[iSym]=id;
+           //SymbolInfoFillingIn(id,data);
+		   iSym++;
+
+		}else{// New Data From Exixting Symbol
+		   ask = getAsk(data);
+		   bid = getBid(data);
+
+		}
+        c("......................... "+getTime() );
+
+
+
+
+
+	   //c(id+" ========> "+ask+"/"+bid);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //*****************************************************************************
+//*****************************************************************************
+//  Get Id Data Encomming
+
+String getDataId(String d){
+	String res="NULL";
+	int N=d.Length();
+	for(int i=0;i<N;i++){
+		if(d.SubString(i,5)=="@@11="){
+			 for(int j=i+5;j<N;j++){
+				if(d.SubString(j,2)=="@@")
+				{
+						res = d.SubString(i+5,j-i-5) ;
+						j=N+2;//Exit From Loop 2
+						i=j;//Exit From Loop 1
+				}
+			 }
+
+		}
+
+
+	}
+	return res;
+}
+
+
+
+
+
+
+
+ //@@1=2.13@@11=2089000528::EURUSD@@2=-1@@5=200@@6=Darwinex@@7=Haidra27@@8=Darwinex-Demo@@13=2@@14=1@@16=1.18080000@@17=1.18077000@@
+ //*****************************************************************************
+//*****************************************************************************
+//  Test Is New Encomming Symbol
+
+ bool isNewSym(String id){
+	bool res=true;
+	for(int i=0;i<iSym;i++) {
+
+		if(symId[i]==id){
+			res=false;
+			i=iSym+2;
+		}
+	}
+	return res;
+ }
+
+
+
+
+  //*****************************************************************************
+//*****************************************************************************
+//  Ask and Bid
+
+String getAsk(String d){
+	String res="0";
+	int N=d.Length();
+	for(int i=0;i<N;i++){
+		if(d.SubString(i,5)=="@@16="){
+			 for(int j=i+5;j<N;j++){
+				if(d.SubString(j,2)=="@@")
+				{
+						res = d.SubString(i+5,j-i-5) ;
+						j=N+2;//Exit From Loop 2
+						i=j;  //Exit From Loop 1
+				}
+			 }
+
+		}
+
+
+	}
+	return res;
+}
+
+
+String getBid(String d){
+	String res="0";
+	int N=d.Length();
+	for(int i=0;i<N;i++){
+		if(d.SubString(i,5)=="@@17="){
+			 for(int j=i+5;j<N;j++){
+				if(d.SubString(j,2)=="@@")
+				{
+						res = d.SubString(i+5,j-i-5) ;
+						j=N+2;//Exit From Loop 2
+						i=j;//Exit From Loop 1
+				}
+			 }
+
+		}
+
+
+	}
+	return res;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*****************************************************************************
+//*****************************************************************************
+//  Timing http://www.functionx.com/cppbuilder/topics/datetime.htm
+String getTime(){
+	TDateTime RightNow = Time();
+	unsigned short Hours, Minutes, Seconds, Milliseconds;
+	RightNow.DecodeTime(&Hours, &Minutes, &Seconds, &Milliseconds);
+	String res=  RightNow.FormatString(L"dd-mm-yy") +" "+ Hours+":"+Minutes+":"+Seconds+":"+Milliseconds ;
+	return  res;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*****************************************************************************
+//*****************************************************************************
+//    WriteConsole Testing Perpess
+
+ void WriteLn(String text);
+ void c(String str) {
+	WriteLn(str);
+}
+
+void WriteLn(String text)
+{ // http://bcbjournal.org/articles/vol2/9812/WriteLn_for_CBuilder.htm
+	static HANDLE handle;
+	if (!handle) {
+		AllocConsole();
+		handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	}
+	text += "\n";
+	WriteConsole(handle, text.c_str(), text.Length(), 0, 0);
+}
+
+
+
+//*****************************************************************************
+//*****************************************************************************
+//*****************************************************************************
+//*****************************************************************************
+
+
+
+/*
+
+   ï»¿#include <iostream>
+#include<string>
+#include "Symbol.cpp"
+
+
+// *************************************************************************
+// *************************************************************************
+void WriteLn(String text);
+
+// *************************************************************************
+
+
+
+
+// *************************************************************************
+// *************************************************************************
+// Global Var
+int iTime = 0;
+
+
+
+// ***********************************************************************
+#include <iostream>
+#include<string>
+
+
+//***********************************************************************
+void c(String text) ;
+
+
+
+
+//***********************************************************************
+
+ struct Symbol {    String id; String name; String login; String leverage; String company; String server; int    TaillDuContrat ;};
+//*****************************************************************************
+Symbol Sym[30];
+int    iSym=0;
+
+//****************************************************************************
+int getNbSymol(){return iSym;}
+void setNbSymbol(int NewNb){iSym=NewNb;}
+
+
+// Timer Alert In Cosole
+/*String Message = "Haidra", oMessage = "Haidra";
+
+String isMessageChange() {
+
+	if (Message != oMessage) {
+		Message = oMessage;
+		return "T";
+	}
+		else {
+		return "F";
+	}
+}
+
+String getMessage() {
+	return Message;
+}
+
+void setMessage(String srt) {
+	Message = srt;
+}
+//*************************************************************************
+
+Symbol s2[10];
+
+void c(String str) {
+	WriteLn(str);
+}
+
+void WriteLn(String text)
+{ // http://bcbjournal.org/articles/vol2/9812/WriteLn_for_CBuilder.htm
+	static HANDLE handle;
+	if (!handle) {
+		AllocConsole();
+		handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	}
+	text += "\n";
+	WriteConsole(handle, text.c_str(), text.Length(), 0, 0);
+}
+
+// Seters and Geters
+void setiTime(int newI){ iTime  = newI; }
+int getiTime(){ 	 return iTime ;  }
+void cTime(){ iTime++; }
+
+//**************************************************************************
+
+void HandleIncomingData(String data){
+	c("IncomingData ");
+	c(data);
+
+}
+
+
+
+
+c("******************************************************");
+		setConsoleMSG(id);
+		for(int  i=0;i<iSym;i++){
+		   c(symId[i]+"-------");
+		}
+
+
+
+
+*/

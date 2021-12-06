@@ -1,0 +1,89 @@
+Fix iHaidra frome App To MQ4/5 Speed 1.2 millisecond
+...=.../...=.../...=.../...=.../...=.../...=.../...=.../...=.../...=.../...=.../...=.../...=.../
+
+1=2.13                                     => Version Of Fix Haidra
+2=5                                        => Nbr Symbol Active  / =-1 usel symbol
+3=10                                       => Nbr Trade  Active
+4=12653214                                 => ACCOUNT_LOGIN 
+5=500                                      => ACCOUNT_LEVERAGE Password405 sp2019u1@gmail.com
+6=FBS                                      => ACCOUNT_COMPANY
+7=                                         => ACCOUNT_NAME
+8=                                         => ACCOUNT_SERVER
+9=                                         => ACCOUNT_BALANCE
+10=                                        => ACCOUNT_PROFIT
+11=121212::EURUSDi                         => ID            
+
+------------------------------------------------------------ ===> if(2=-1){ get [12-19] }
+
+12=US30                                    => Symbol
+13=2                                       => Symbol Diget
+14=10                                      => Symbol Taille contract
+15=1                                       => Symbol Active To trade  (0,1)
+16=ask                                     => Symbol Ask
+17=bid                                     => Symbol Bid
+18=Time=(hh:mm:ss]                            => Symbol Time
+19=Spread                                  => Symbol Spread
+
+------------------------------------------------------------
+
+
+@@20=##x1=Ordre=170447947Time=2020.10.20 19:38:16Type=buySize=0.01Symbol=nas100Price=11729.5Profit=-0.71Comment=R22_Amine##x2=...........@@
+
+-----------------------------------------------------------
+//   Market order 1==Sell / 0==Buy / 7==Close
+
+701=1@1@ID@2@Size@3@Comment@4@price@5@
+702=0@1@ID@2@Size@3@Comment@4@price@5@
+703=7@1@ID@2@Size@3@Comment@4@price@5@
+
+
+
+------------------------------------------------------------
+31=EURUSD                                  => Ferst Symbol
+32=TESLA                                   => Second Symbol
+33=.....                                   => 3 Symbol
+49=GER30                                   => 19 Symbol
+50=....                                    => 20 Symbol
+-------------------------------------------------------------
+61=5                                       => Ferst  Symbol Diget
+62=2                                       => Second Symbol Dige ----->79
+-------------------------------------------------------------
+81=100                                     => Ferst  Symbol Taille contract
+32=1                                       => Second Symbol Diget----->99
+-------------------------------------------------------------
+101=1                                      => Ferst  Symbol Active To trade  (0,1)
+102=0                                      => Second Symbol Active To Trade  ----->119
+-------------------------------------------------------------
+600=@@                                     => Decoding Orders message
+//************* Max Trade Is 300 Trade Handel Frome [601 - 899]   Decode By @i
+601=@i260938109@i2020.09.05 21:38:13@isell@i1.00@ibtcusdm@i10079.44@i-18.51@i   // Order@time@Type@Volum@Symbol@Profit
+602=...	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

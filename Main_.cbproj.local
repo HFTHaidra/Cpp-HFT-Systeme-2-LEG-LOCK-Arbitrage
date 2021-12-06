@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/10/11 18:24:30.000.990,=C:\Users\haidra\Documents\Embarcadero\Studio\Projets\Project4PCH1.h</Transaction>
+    <Transaction>2020/10/11 18:24:31.000.003,=C:\Users\haidra\Documents\Embarcadero\Studio\Projets\Unit7.cpp</Transaction>
+    <Transaction>2020/10/11 18:25:44.000.891,D:\c++\Pro.h=C:\Users\haidra\Documents\Embarcadero\Studio\Projets\Unit7.h</Transaction>
+    <Transaction>2020/10/11 18:25:44.000.891,D:\c++\Pro.dfm=C:\Users\haidra\Documents\Embarcadero\Studio\Projets\Unit7.dfm</Transaction>
+    <Transaction>2020/10/11 18:25:44.000.891,D:\c++\Pro.cpp=C:\Users\haidra\Documents\Embarcadero\Studio\Projets\Unit7.cpp</Transaction>
+    <Transaction>2020/10/11 18:25:48.000.347,D:\c++\Pro_.h=C:\Users\haidra\Documents\Embarcadero\Studio\Projets\Project4PCH1.h</Transaction>
+    <Transaction>2020/10/11 18:25:52.000.814,D:\c++\Main_.cbproj=C:\Users\haidra\Documents\Embarcadero\Studio\Projets\Project4.cbproj</Transaction>
+    <Transaction>2020/10/11 20:16:03.000.940,=D:\c++\Unit1.cpp</Transaction>
+    <Transaction>2020/10/11 20:16:23.000.674,D:\c++\Script.cpp=D:\c++\Unit1.cpp</Transaction>
+    <Transaction>2020/10/11 20:16:23.000.674,D:\c++\Script.h=D:\c++\Unit1.h</Transaction>
+    <Transaction>2020/10/11 20:16:53.000.214,D:\c++\Pro_.h=</Transaction>
+    <Transaction>2020/10/11 20:25:51.000.550,=D:\c++\Unit1.cpp</Transaction>
+    <Transaction>2020/10/11 20:26:28.000.038,=D:\c++\File1.cpp</Transaction>
+    <Transaction>2020/10/27 18:06:15.000.386,=E:\c++\Unit1.cpp</Transaction>
+    <Transaction>2020/10/27 18:06:34.000.694,E:\c++\Unit1.dfm=E:\c++\charts.dfm</Transaction>
+    <Transaction>2020/10/27 18:06:34.000.694,E:\c++\Unit1.h=E:\c++\charts.h</Transaction>
+    <Transaction>2020/10/27 18:06:34.000.694,E:\c++\Unit1.cpp=E:\c++\charts.cpp</Transaction>
+    <Transaction>2020/10/31 21:13:06.000.320,=E:\c++\Unit1.cpp</Transaction>
+    <Transaction>2020/10/31 21:14:25.000.708,E:\c++\Unit1.h=E:\c++\Lockd.h</Transaction>
+    <Transaction>2020/10/31 21:14:25.000.708,E:\c++\Unit1.dfm=E:\c++\Lockd.dfm</Transaction>
+    <Transaction>2020/10/31 21:14:25.000.708,E:\c++\Unit1.cpp=E:\c++\Lockd.cpp</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Main_.cpp"/>
+    <File Path="Pro.cpp"/>
+    <File Path="Pro.cpp"/>
+    <File Path="Pro.dfm"/>
+    <File Path="Pro.h"/>
+    <File Path="charts.cpp"/>
+    <File Path="charts.cpp"/>
+    <File Path="charts.dfm"/>
+    <File Path="charts.h"/>
+    <File Path="Lockd.cpp"/>
+    <File Path="Lockd.cpp"/>
+    <File Path="Lockd.dfm"/>
+    <File Path="Lockd.h"/>
+  </ProjectSortOrder>
+</BorlandProject>
